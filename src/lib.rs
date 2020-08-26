@@ -130,8 +130,9 @@ impl StreamAlerter {
         let mut trie = Trie::default();
         let mut max_len = 0;
         for key in keys {
-            if key.len() > max_len {
-                max_len = key.len();
+            let v = key.chars().count();
+            if v > max_len {
+                max_len = v;
             }
             trie.insert(key);
         }
